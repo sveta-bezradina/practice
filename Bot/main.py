@@ -1,12 +1,14 @@
 import os
 import datetime
 import requests
-import math
+import math, config
 from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor 
 
-bot = Bot(token='6058928493:AAHQ5s7q3opedxwqIXBJytcW3MpMN0OyBn0')
+#для защиты от спама
+PROXY_URL="http://proxy.server:3128"
+bot = Bot(token='TOKEN')
 dp = Dispatcher(bot)
 
 @dp.message_handler(commands=["start"])

@@ -13,7 +13,7 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=["start"])
 async def start_command(message: types.Message):
-	await message.reply("Привіт! Напиши назву міста і я надішлю прогноз погоди")
+	await message.reply("Привіт! Напиши назву міста і я надішлю прогноз погоди (будь-ласка вказуйте назву українською)")
 
 @dp.message_handler()
 async def get_weather(message: types.Message):
@@ -59,8 +59,5 @@ async def get_weather(message: types.Message):
 	except:
 	        await message.reply("Перевірте назву міста!")
 
-async def startup(dp: Dispatcher):
-	print("started")
-
 if __name__ == "__main__":
-	executor.start_polling(dp, on_startup=startup)
+	executor.start_polling(dp, skip_updates=True)
